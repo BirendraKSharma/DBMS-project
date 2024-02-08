@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Tasks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            margin: 0;
+            text-align: center;
+        }
+        div {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        p {
+            margin: 0 0 10px;
+        }
+        form {
+            display: inline-block;
+        }
+        input[type="submit"] {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #444;
+        }
+        a {
+            margin-left: 10px;
+            color: #333;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Show Tasks</h1>
+
+    <!-- List of tasks -->
+    {% for task in tasks %}
+        <div>
+            <p>{{ task.content }} - Due: {{ task.dueDate }}</p>
+            <form method="POST" action="/delete/{{ task.id }}">
+                <input type="submit" value="Delete">
+            </form>
+            <a href="/update/{{ task.id }}">Update</a>
+        </div>
+    {% endfor %}
+</body>
+</html>
