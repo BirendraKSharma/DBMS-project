@@ -58,7 +58,8 @@
     <!-- List of tasks -->
     {% for task in tasks %}
         <div>
-            <p>{{ task.content }} - Due: {{ task.dueDate }}</p>
+            <p>{{ task.content }}</p>
+            <p>Due Date: {{ task.dueDate }}</p>
             <form method="POST" action="/delete/{{ task.id }}">
                 <input type="submit" value="Delete">
             </form>

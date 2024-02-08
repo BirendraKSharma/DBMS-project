@@ -37,13 +37,12 @@ def index():
 def show():
     # Connect to MySQL and fetch all tasks
     cur = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cur.execute("SELECT * FROM tasks")
+    cur.execute("SELECT * FROM tasks ORDER BY date_created DESC;")
     tasks = cur.fetchall()
     cur.close()
 
     # Render the template and pass the tasks to it
     return render_template('show.html', tasks=tasks)
- 
  
     
 @app.route('/delete/<int:id>', methods=['POST'])
