@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request, redirect, session
-from flask_mysqldb import MySQL
+from flask import Flask, render_template, request, redirect, session # type: ignore
+from flask_mysqldb import MySQL # type: ignore
 from datetime import datetime
 import yaml
 import MySQLdb.cursors
